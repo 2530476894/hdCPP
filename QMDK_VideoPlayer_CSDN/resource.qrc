@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/audio_new_1.png</file>
+        <file>resource/audio_new_2.png</file>
+        <file>resource/audio_new_3.png</file>
+        <file>resource/audio_stop_1.png</file>
+        <file>resource/audio_stop_2.png</file>
+        <file>resource/audio_stop_3.png</file>
+        <file>resource/camera_1.png</file>
+        <file>resource/camera_2.png</file>
+        <file>resource/camera_3.png</file>
+        <file>resource/logo.ico</file>
+        <file>resource/pause_1.png</file>
+        <file>resource/pause_2.png</file>
+        <file>resource/pause_3.png</file>
+        <file>resource/reset_new_1.png</file>
+        <file>resource/reset_new_2.png</file>
+        <file>resource/reset_new_3.png</file>
+        <file>resource/you_new_1.png</file>
+        <file>resource/you_new_2.png</file>
+        <file>resource/you_new_3.png</file>
+        <file>resource/zantin_new_1.png</file>
+        <file>resource/zantin_new_2.png</file>
+        <file>resource/zantin_new_3.png</file>
+        <file>resource/zuo_new_1.png</file>
+        <file>resource/zuo_new_2.png</file>
+        <file>resource/zuo_new_3.png</file>
+        <file>resource/load_1.png</file>
+        <file>resource/load_2.png</file>
+        <file>resource/load_3.png</file>
+        <file>resource/check_1.png</file>
+        <file>resource/check_2.png</file>
+        <file>resource/_begin.png</file>
+        <file>resource/_begin-b.png</file>
+        <file>resource/last.png</file>
+        <file>resource/last-b.png</file>
+        <file>resource/close.png</file>
+        <file>resource/close_2.png</file>
+        <file>resource/xuanzhuan_new_1.png</file>
+        <file>resource/xuanzhuan_new_2.png</file>
+        <file>resource/xuanzhuan_new_3.png</file>
+        <file>resource/info_1.png</file>
+        <file>resource/info_2.png</file>
+        <file>resource/QMDK_VideoPlayer.qss</file>
+    </qresource>
+</RCC>
