@@ -1,0 +1,322 @@
+/*初始化加载视频按钮*/
+#toolButton_init_load{border-image: url(:/resource/load_1.png);}
+#toolButton_init_load::pressed{border-image: url(:/resource/load_3.png);}
+#toolButton_init_load:hover{image: url(:/resource/load_2.png);}
+
+/*加载视频按钮*/
+#toolButton_load{border-image: url(:/resource/load_1.png);}
+#toolButton_load::pressed{border-image: url(:/resource/load_3.png);}
+#toolButton_load:hover{image: url(:/resource/load_2.png);}
+
+/*倒放按钮样式_对应的就是快退按钮*/
+#MediaPrevBtn{border-image: url(:/resource/_begin.png);}
+#MediaPrevBtn::pressed{border-image: url(:/resource/_begin-b.png);}
+#MediaPrevBtn:hover{image: url(:/resource/_begin-b.png);}
+
+/*播放按钮样式_对应的就是快进按钮*/
+#MediaPlayBtn{border-image: url(:/resource/last.png);}
+#MediaPlayBtn::pressed{border-image: url(:/resource/last-b.png);}
+#MediaPlayBtn:hover{image: url(:/resource/last-b.png);}
+
+/*倒放按钮样式_播放前一个媒体文件*/
+#toolButton_pgup{border-image: url(:/resource/zuo_new_1.png);}
+#toolButton_pgup::pressed{border-image: url(:/resource/zuo_new_3.png);}
+#toolButton_pgup:hover{image: url(:/resource/zuo_new_2.png);}
+
+/*播放按钮样式_播放后一个媒体文件*/
+#toolButton_pgDn{border-image: url(:/resource/you_new_1.png);}
+#toolButton_pgDn::pressed{border-image: url(:/resource/you_new_2.png);}
+#toolButton_pgDn:hover{image: url(:/resource/you_new_3.png);}
+
+
+/*暂停继续的按钮样式*/
+#MediaPauseBtn{border-image: url(:/resource/zantin_new_1.png);}
+#MediaPauseBtn:hover{image: url(:/resource/zantin_new_2.png);}
+#MediaPauseBtn:pressed{border-image: url(:/resource/zantin_new_3.png);}
+
+#MediaPauseBtn:checked{border-image: url(:/resource/pause_1.png);}
+#MediaPauseBtn:checked:hover{image: url(:/resource/pause_2.png);}
+#MediaPauseBtn:checked:pressed{image: url(:/resource/pause_3.png);}
+
+
+/*旋转的按钮样式*/
+#MediaRotateBtn{border-image: url(:/resource/xuanzhuan_new_1.png);}
+#MediaRotateBtn:hover{image: url(:/resource/xuanzhuan_new_2.png);}
+#MediaRotateBtn:pressed{border-image: url(:/resource/xuanzhuan_new_3.png);}
+
+
+/*重播按钮样式,恢复到视频开头*/
+#MediaResetBtn{border-image: url(:/resource/reset_new_1.png);}
+#MediaResetBtn::pressed{border-image: url(:/resource/reset_new_3.png);}
+#MediaResetBtn:hover{image: url(:/resource/reset_new_2.png);}
+
+/*播放列表的复选框按钮样式*/
+#checkBox_video_list::indicator:unchecked{image:url(:/resource/check_1.png);}  
+#checkBox_video_list::indicator:checked{image:url(:/resource/check_2.png);}
+#checkBox_video_list::indicator
+{  
+    width: 24px;  
+    height: 24px;  
+}  
+
+
+/*音量按钮样式*/
+#VolumeBtn{border-image: url(:/resource/audio_new_1.png);}
+#VolumeBtn:hover{image: url(:/resource/audio_new_2.png);}
+#VolumeBtn:pressed{border-image: url(:/resource/audio_new_3.png);}
+
+#VolumeBtn:checked{border-image: url(:/resource/audio_stop_1.png);}
+#VolumeBtn:checked:hover{image: url(:/resource/audio_stop_2.png);}
+#VolumeBtn:checked:pressed{image: url(:/resource/audio_stop_3.png);}
+
+/*播速率按钮样式*/
+#MediaSpeedBtn
+{
+	background-color:#9A9A9A;
+	font-size:16px;
+	color:#242526;
+	border:0.1px groove gray;
+	border-radius:10px;
+	padding:2px 4px;
+}
+#MediaSpeedBtn:hover{background-color:#1373E5}
+#MediaSpeedBtn:pressed{background-color:#1A4A84}
+
+
+
+/*关闭按钮*/
+#toolButton_close{border-image: url(:/resource/close.png);}
+#toolButton_close::pressed{border-image: url(:/resource/close_2.png);}
+#toolButton_close:hover{image: url(:/resource/close_2.png);}
+
+/*关于的按钮*/
+#toolButton_about{border-image: url(:/resource/info_1.png);}
+#toolButton_about::pressed{border-image: url(:/resource/info_2.png);}
+#toolButton_about:hover{image: url(:/resource/info_2.png);}
+
+
+/*截图拍照按钮样式*/
+#MediaSnapshotBtn{border-image: url(:/resource/camera_1.png);}
+#MediaSnapshotBtn::pressed{border-image: url(:/resource/camera_3.png);}
+#MediaSnapshotBtn:hover{image: url(:/resource/camera_2.png);}
+
+/*窗口的样式*/
+QWidget
+{
+	font-size: 16px;
+	color: #9A9A9A;
+	background: #242526;
+}
+
+/*标签样式,对应的是视频总时间*/
+#label_Total_Time{color: #1473E6;}
+
+/*视频播放窗口的样式*/
+#widget_videoDisplay{background: #18191A;}
+
+/*滑块的样式*/
+QSlider::groove:horizontal {
+border: 1px solid #4A708B;
+background: #C0C0C0;
+height: 5px;
+border-radius: 1px;
+padding-left:-1px;
+padding-right:-1px;
+}
+
+/*滑块经过的颜色:前面的颜色*/
+QSlider::sub-page:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, 
+    stop:0 #B1B1B1, stop:1 #c4c4c4);
+background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
+    stop: 0 #5DCCFF, stop: 1 #1874CD);
+border: 1px solid #4A708B;
+height: 10px;
+border-radius: 2px;
+}
+
+QSlider::add-page:horizontal {
+background: #575757;
+border: 0px solid #777;
+height: 10px;
+border-radius: 2px;
+}
+
+QSlider::handle:horizontal 
+{
+    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, 
+    stop:0.6 #45ADED, stop:0.778409 rgba(255, 255, 255, 255));
+
+    width: 11px;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    border-radius: 5px;
+}
+
+QSlider::handle:horizontal:hover {
+    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0.6 #2A8BDA, 
+    stop:0.778409 rgba(255, 255, 255, 255));
+
+    width: 11px;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    border-radius: 5px;
+}
+
+QSlider::sub-page:horizontal:disabled {
+background: #00009C;
+border-color: #999;
+}
+
+QSlider::add-page:horizontal:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:horizontal:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}
+
+/*对话框的样式*/
+QDialog
+{
+	font-size: 16px;
+	color: #000000;
+	background: #FFFAFA;
+}
+
+/*表格样式*/
+QTreeWidget
+{
+	font-size: 16px;
+	color: #000000;
+	background: #FFFAFA;
+}
+
+/*************************滚动条****************************************/
+/*横向滚动条样式*/
+QScrollBar:horizontal{
+	padding-left: 0px;
+	padding-right:0px;
+	border:0px solid grey;
+	background-color: #FF6A6A;
+	height:10px;
+	border-radius: 5px;
+}
+/*纵向滚动条样式*/
+QScrollBar:vertical{
+	padding-top: 0px;
+	padding-bottom:0px;
+	border:0px solid grey;
+	background-color: #FF6A6A;
+	width:10px;
+	border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+	background-color: rgb(209,209,209);
+	min-height: 30px;
+	border-radius: 5px;
+}
+QScrollBar::handle:horizontal {
+	background-color: rgb(209,209,209);
+	min-width: 30px;
+	border-radius: 5px;
+}
+
+/*鼠标放上去的颜色*/
+QScrollBar::handle:vertical:hover,QScrollBar::handle:horizontal:hover {
+	background-color: #1373E5;
+}
+
+QScrollBar::add-line:vertical{
+	height: 3px;
+/* 	subcontrol-position: bottom;
+	subcontrol-origin: margin; */
+	background: transparent;
+}
+QScrollBar::sub-line:vertical{
+	height: 3px;
+	/* subcontrol-position: top;
+	subcontrol-origin: margin; */
+	background: transparent;
+}
+QScrollBar::add-line:horizontal{
+	width: 0px;
+	subcontrol-position: left;
+	subcontrol-origin: margin;
+	background: transparent;
+}
+QScrollBar::sub-line:horizontal{
+	width: 0px;
+	subcontrol-position: right;
+	subcontrol-origin: margin;
+	background: transparent;
+}
+QScrollBar::up-arrow:vertical,QScrollBar::down-arrow:vertical,
+QScrollBar::up-arrow:horizontal,QScrollBar::down-arrow:horizontal{
+	border: 0px solid grey;
+	width: 3px;
+	height: 3px;
+	background: transparent;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical,
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal{
+	background: transparent;
+	border-radius: 5px;
+}
+
+/*按钮普通态*/
+QPushButton
+{
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    background-color:rgb(14 , 150 , 254);
+}
+
+/*按钮停留态*/
+QPushButton:hover
+{
+    /*背景颜色*/  
+    background-color:rgb(44 , 137 , 255);
+}
+
+/*按钮按下态*/
+QPushButton:pressed
+{
+    /*背景颜色*/  
+    background-color:rgb(14 , 135 , 228);
+}
+
+/*条目选中的样式*/
+QListWidget::item:selected
+{
+	/*背景颜色*/  
+    background-color:#FF1493;
+	/*字体颜色*/
+    color:white;
+    border-width:0;
+}
+
+/*基本样式设置*/
+QListWidget
+{
+	/*去除边界线*/
+	border:none;
+}
+
+QLabel
+{
+	/*背景颜色*/  
+    background-color:white;
+	/*字体颜色*/
+    color:#242526;
+}
+
+#label_FileName
+{
+	background-color:#242526;
+	color:#9A9A9A;
+}
