@@ -163,13 +163,8 @@ void QMDKWidget::setrotate(int degree) //设置旋转
 }
 
 
-/*
-工程: QMDK_Player
-日期: 2021-04-08
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 设置解码器
-*/
+
+//功能: 设置解码器
 void QMDKWidget::setDecoders(const QStringList &dec)
 {
     std::vector<std::string> v;
@@ -179,13 +174,8 @@ void QMDKWidget::setDecoders(const QStringList &dec)
     player_->setVideoDecoders(v);
 }
 
-/*
-工程: QMDK_Player
-日期: 2021-04-08
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 设置媒体文件
-*/
+//功能: 设置媒体文件
+
 void QMDKWidget::setMedia(const QString &url)
 {
     player_->setMedia(url.toUtf8().constData());
@@ -238,8 +228,6 @@ void QMDKWidget::snapshot() {
 
 void QMDKWidget::resizeGL(int w, int h)
 {
-    //auto s = screen();
-    //qDebug("resizeGL>>>>>dpr: %f, logical dpi: (%f,%f), phy dpi: (%f,%f)", s->devicePixelRatio(), s->logicalDotsPerInchX(), s->logicalDotsPerInchY(), s->physicalDotsPerInchX(), s->physicalDotsPerInchY());
     player_->setVideoSurfaceSize(w*devicePixelRatio(), h*devicePixelRatio());
 }
 

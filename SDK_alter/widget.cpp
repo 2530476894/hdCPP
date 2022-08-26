@@ -92,13 +92,9 @@ void Widget::SetStyle(const QString &qssFile)
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: UI界面初始化
-*/
+
+//功能: UI界面初始化
+
 void Widget::UI_InitConfig()
 {
     //音量滑块范围设置
@@ -201,13 +197,10 @@ void Widget::UI_InitConfig()
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 事件处理函数
-*/
+
+
+//功能: 事件处理函数
+
 void Widget::onCustomContextMenuRequested(const QPoint &pos)
 {
     qDebug()<<"弹出右键菜单";
@@ -217,13 +210,8 @@ void Widget::onCustomContextMenuRequested(const QPoint &pos)
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: QMDK初始化配置
-*/
+
+//功能: QMDK初始化配置
 
 void Widget::QMDK_InitConfig()
 {
@@ -238,15 +226,11 @@ void Widget::QMDK_InitConfig()
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 加载视频文件 flag=0 重新加载文件 flag=1 重新开始播放
+
+/*功能: 加载视频文件 flag=0 重新加载文件 flag=1 重新开始播放
 QString file_path 这参数可以传入文件名称,因为窗口支持拖放文件进来
-返回值: true 成功 false 失败
-*/
+返回值: true 成功 false 失败*/
+
 bool Widget::load_video_file(bool flag,QString file_path)
 {
     if(flag==false)
@@ -306,26 +290,18 @@ bool Widget::load_video_file(bool flag,QString file_path)
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 加载视频文件
-*/
+
+//功能: 加载视频文件
+
 void Widget::on_toolButton_load_clicked()
 {
     qDebug()<<"加载视频文件状态:"<<load_video_file(0,"");
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 暂停播放
-*/
+
+//功能: 暂停播放
+
 void Widget::on_MediaPauseBtn_clicked()
 {
     bool bPause=ui->MediaPauseBtn->isChecked();
@@ -343,51 +319,35 @@ void Widget::on_MediaPauseBtn_clicked()
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 重新开始播放
-*/
+
+//功能: 重新开始播放
+
 void Widget::on_MediaResetBtn_clicked()
 {
     //加重新开始播放
     load_video_file(true,"");
 }
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 快退播放
-*/
+
+//功能: 快退播放
+
 void Widget::on_MediaPrevBtn_clicked()
 {
     ui->AV_player->seek(ui->AV_player->position()-10000);
 }
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 快进播放
-*/
+
+//功能: 快进播放
+
 void Widget::on_MediaPlayBtn_clicked()
 {
     ui->AV_player->seek(ui->AV_player->position()+10000);
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 音量设置
-*/
+
+//功能: 音量设置
+
 void Widget::on_VolumeBtn_clicked()
 {
     bool checked=ui->VolumeBtn->isChecked();
@@ -396,26 +356,19 @@ void Widget::on_VolumeBtn_clicked()
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 音量设置
-*/
+
+
+//功能: 音量设置
+
 void Widget::on_horizontalSlider_AudioValue_valueChanged(int value)
 {
     ui->AV_player->setVolume(float(value/10.0));
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 播放速度设置菜单选择
-*/
+
+//功能: 播放速度设置菜单选择
+
 void Widget::slot_onSetTimeSpeed(QAction *action)
 {
     action->setChecked(true);
@@ -427,13 +380,8 @@ void Widget::slot_onSetTimeSpeed(QAction *action)
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 点击了速度设置按钮
-*/
+//功能: 点击了速度设置按钮
+
 void Widget::on_MediaSpeedBtn_clicked()
 {
     QPoint ptWgt = ui->MediaSpeedBtn->mapToGlobal(QPoint(0, 0));
@@ -444,13 +392,9 @@ void Widget::on_MediaSpeedBtn_clicked()
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 显示菜单
-*/
+
+//功能: 显示菜单
+
 void Widget::slot_onListWidgetMenu(QAction *action)
 {
     if (action == nullptr)
@@ -496,13 +440,10 @@ void Widget::slot_onListWidgetMenu(QAction *action)
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-24
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 点击了截图按钮
-*/
+
+
+//功能: 点击了截图按钮
+
 void Widget::on_MediaSnapshotBtn_clicked()
 {
     ui->AV_player->snapshot();
@@ -536,10 +477,7 @@ void Widget::onTimeSliderLeave()
 
 void Widget::seek(int value)
 {
-//    if(!ui->AV_player->isPaused())
-//    {
-//        ui->AV_player->pause();
-//    }
+
 
     ui->AV_player->seek(value);
     m_preview->seek(value);
@@ -576,13 +514,9 @@ void Widget::dropEvent(QDropEvent *e)
     }
 }
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 双击列表播放视频
-*/
+
+//功能: 双击列表播放视频
+
 void Widget::on_listWidget_videoData_itemDoubleClicked(QListWidgetItem *item)
 {
     //加载视频文件
@@ -590,13 +524,9 @@ void Widget::on_listWidget_videoData_itemDoubleClicked(QListWidgetItem *item)
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 显示视频列表
-*/
+
+//功能: 显示视频列表
+
 void Widget::on_checkBox_video_list_clicked(bool checked)
 {
     if(checked)
@@ -611,13 +541,9 @@ void Widget::on_checkBox_video_list_clicked(bool checked)
     }
 }
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 视频事件处理
-*/
+
+//功能: 视频事件处理
+
 void Widget::slot_VideoWidgetEvent(int type)
 {
     //type =1  双击按下
@@ -682,38 +608,25 @@ void Widget::slot_VideoWidgetEvent(int type)
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 关闭窗口
-*/
+
+//功能: 关闭窗口
+
 void Widget::on_toolButton_close_clicked()
 {
     this->close();
 }
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能:mousePressEvent
-*/
+//功能:mousePressEvent
+
 void  Widget::mousePressEvent(QMouseEvent *event)
 {
     m_lastPos = event->globalPos();
     isPressedWidget = true; // 当前鼠标按下的即是QWidget而非界面上布局的其它控件
 }
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能:mouseMoveEvent
-*/
+
+//功能:mouseMoveEvent
+
 void  Widget::mouseMoveEvent(QMouseEvent *event)
 {
     if (isPressedWidget) {
@@ -724,13 +637,10 @@ void  Widget::mouseMoveEvent(QMouseEvent *event)
 }
 
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能:mouseReleaseEvent
-*/
+
+
+//功能:mouseReleaseEvent
+
 void  Widget::mouseReleaseEvent(QMouseEvent *event)
 {
     m_lastPos = event->globalPos();
@@ -916,13 +826,9 @@ void Widget::closeEvent(QCloseEvent *event)
     }
 }
 
-/*
-工程: QMDK_VideoPlayer
-日期: 2021-04-16
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 关于的提示
-*/
+
+//功能: 关于的提示
+
 void Widget::on_toolButton_about_clicked()
 {
     QString text=

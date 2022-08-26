@@ -81,7 +81,7 @@ void Slider::initStyleOption_Qt430(QStyleOptionSlider *option) const
         option->state |= QStyle::State_Horizontal;
 }
 
-// Function copied from qslider.cpp and modified to make it compile
+// from qslider.cpp 单击到鼠标指定位置
 int Slider::pixelPosToRangeValue(int pos) const
 {
     QStyleOptionSlider opt;

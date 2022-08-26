@@ -1,6 +1,5 @@
 #ifndef WIDGET_H
 #define WIDGET_H
-
 #include <QWidget>
 #include <QFile>
 #include <QFileDialog>
@@ -77,7 +76,6 @@ public:
     void QMDK_InitConfig();
     //加载视频文件
     bool load_video_file(bool flag, QString file_path);
-
     //保存配置文件
     void SaveConfig();
     //加载配置
@@ -85,59 +83,44 @@ public:
  signals:
     void s_pause_state(bool pause_state,qint64 current_time);
 protected:
-    bool eventFilter(QObject *obj, QEvent *event);
-    void dragEnterEvent(QDragEnterEvent *e);
-    void dropEvent(QDropEvent *e);
-    void closeEvent(QCloseEvent *event);
+    bool eventFilter(QObject *obj, QEvent *event);//判断鼠标事件的过滤器
+    void dragEnterEvent(QDragEnterEvent *e);//拖进视频
+    void dropEvent(QDropEvent *e);//放入视频
+    void closeEvent(QCloseEvent *event);//关闭事件
+    void mouseReleaseEvent(QMouseEvent *event);//鼠标释放
+    void mouseMoveEvent(QMouseEvent *event);//鼠标移动
+    void mousePressEvent(QMouseEvent *event);//鼠标点击
+    void keyPressEvent(QKeyEvent *event); //键盘事件
 
-    //截取鼠标事件绘制窗口位置. 因为标题栏隐藏后.窗口是无法拖动的。
-    void mouseReleaseEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void keyPressEvent(QKeyEvent *event);
+//slots 自动添加 on_对象命_信号（）槽函数声明
 private slots:
-    void load_updateCaption();
-    void slot_VideoWidgetEvent(int type);
-    void onCustomContextMenuRequested(const QPoint &pos);
-    void seek();
-    void seek(int);
-    void onTimeSliderHover(int pos, int value);
-    void onTimeSliderLeave();
-    void slot_onSetTimeSpeed(QAction *action);
-    void slot_onListWidgetMenu(QAction *);
-    void on_toolButton_load_clicked();
-
-    void on_MediaPauseBtn_clicked();
-
-    void on_MediaResetBtn_clicked();
-
-    void on_MediaPrevBtn_clicked();
-
-    void on_MediaPlayBtn_clicked();
-
-    void on_VolumeBtn_clicked();
-
-    void on_horizontalSlider_AudioValue_valueChanged(int value);
-
-    void on_MediaSpeedBtn_clicked();
-
-    void on_MediaSnapshotBtn_clicked();
-
-    void on_listWidget_videoData_itemDoubleClicked(QListWidgetItem *item);
-
-    void on_checkBox_video_list_clicked(bool checked);
-
-    void on_toolButton_close_clicked();
-
-    void timeout_update();
-    void on_toolButton_pgup_clicked();
-
-    void on_toolButton_pgDn_clicked();
-
-    void slot_onMediaRotate(QAction *action);
-    void on_MediaRotateBtn_clicked();
-
-    void on_toolButton_about_clicked();
+    void load_updateCaption(); //加载视频
+    void slot_VideoWidgetEvent(int type);//鼠标操作视频界面函数槽
+    void onCustomContextMenuRequested(const QPoint &pos);//右键菜单
+    void seek();//播放位置
+    void seek(int);//进度寻址
+    void onTimeSliderHover(int pos, int value);//进度条拖拽
+    void onTimeSliderLeave();//进度隐藏
+    void slot_onSetTimeSpeed(QAction *action);//倍速播放
+    void slot_onListWidgetMenu(QAction *);//显示菜单
+    void on_toolButton_load_clicked();//加载视频文件
+    void on_MediaPauseBtn_clicked();//暂停槽函数
+    void on_MediaResetBtn_clicked();//复位槽函数
+    void on_MediaPrevBtn_clicked();//快退槽函数
+    void on_MediaPlayBtn_clicked();//快进槽函数
+    void on_VolumeBtn_clicked();//静音设置槽函数
+    void on_horizontalSlider_AudioValue_valueChanged(int value);//滑轨音量设置槽函数
+    void on_MediaSpeedBtn_clicked();//倍速播放槽函数
+    void on_MediaSnapshotBtn_clicked();//截图槽函数
+    void on_listWidget_videoData_itemDoubleClicked(QListWidgetItem *item);//列表播放槽函数
+    void on_checkBox_video_list_clicked(bool checked);//列表显示槽函数
+    void on_toolButton_close_clicked();//关闭槽函数
+    void timeout_update();//进度超时槽函数
+    void on_toolButton_pgup_clicked();//播放上一个视频槽函数
+    void on_toolButton_pgDn_clicked();//播放下一个视频槽函数
+    void slot_onMediaRotate(QAction *action);//旋转视频槽函数
+    void on_MediaRotateBtn_clicked();//槽函数
+    void on_toolButton_about_clicked();//提示槽函数
 
 private:
     Ui::Widget *ui;
