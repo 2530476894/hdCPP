@@ -28,7 +28,7 @@ public:
     void setVolume(float value);//设置音量
     int64_t duration(); //视频总时间
     int64_t position(); //当前进度
-    void prepreForPreview();
+    void prepreForPreview();//复位
 signals:
     //type =1  鼠标双击按下
     //type =2  鼠标左键按下

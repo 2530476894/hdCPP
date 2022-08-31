@@ -10,14 +10,12 @@ Widget::Widget(QString filename,QWidget *parent)
     ui->setupUi(this);
     pThis=this;
 
-    setWindowFlags(Qt::FramelessWindowHint);
-
-    setAcceptDrops(true);
-
-    setFocusPolicy(Qt::StrongFocus);
-
     //设置窗口的标题名称
-    this->setWindowTitle("视频播放器");
+    this->setWindowTitle("基于QT的多媒体播放器");
+
+    setWindowFlags(Qt::FramelessWindowHint);//消除标题栏
+    setAcceptDrops(true); //拖放允许
+    setFocusPolicy(Qt::StrongFocus); //设置焦点
 
     //获取标题栏的状态
     win_flag=windowFlags();
@@ -73,13 +71,12 @@ void Widget::load_updateCaption()
     load_video_file(false,text);
 }
 
-/*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
-功能: 加载样式表
-*/
+
+
+/*以下是具体函数的实现*/
+
+//功能: 加载样式表
+
 void Widget::SetStyle(const QString &qssFile)
 {
     QFile file(qssFile);
@@ -105,8 +102,8 @@ void Widget::UI_InitConfig()
     ui->MediaSpeedBtn->setCheckable(true);
     m_TimeSpeedGrp = new QActionGroup(this);
     QStringList strSpeedItems;
-    strSpeedItems << tr("0.5X") << tr("0.75X") << tr("1.0X") << tr("1.25X") << tr("1.5X");
-    float speeds[] = { 0.5,0.75,1.0,1.25,1.5};
+    strSpeedItems << tr("0.5X") << tr("1.0X") << tr("1.5X") << tr("2.0X") << tr("3.0X");
+    float speeds[] = { 0.5,1.0,1.5,2.0,3.0};
 
     for (int i = 0; i < strSpeedItems.size(); i++)
     {
@@ -131,18 +128,17 @@ void Widget::UI_InitConfig()
 
     //工具提示信息
     ui->toolButton_load->setToolTip(tr("加载视频,也可以直接将视频文件拖拽到窗口"));
-
     ui->MediaPrevBtn->setToolTip(tr("快退"));
     ui->MediaPlayBtn->setToolTip(tr("快进"));
     ui->MediaPauseBtn->setToolTip(tr("暂停/继续"));
     ui->MediaSpeedBtn->setToolTip(tr("倍速选择"));
     ui->MediaResetBtn->setToolTip(tr("复位"));
-    ui->MediaSnapshotBtn->setToolTip(tr("拍照(保存在程序运行目录下png)"));
-    ui->VolumeBtn->setToolTip(tr("静音切换"));
+    ui->MediaSnapshotBtn->setToolTip(tr("截屏"));
+    ui->VolumeBtn->setToolTip(tr("静音"));
     ui->checkBox_video_list->setToolTip(tr("显示视频列表"));
     ui->toolButton_pgup->setToolTip(tr("播放上一个媒体"));
     ui->toolButton_pgDn->setToolTip(tr("播放下一个媒体"));
-    ui->MediaRotateBtn->setToolTip(tr("旋转图像"));
+    ui->MediaRotateBtn->setToolTip(tr("旋转"));
     ui->toolButton_about->setToolTip(tr("关于"));
 
     //默认不显示
@@ -153,7 +149,6 @@ void Widget::UI_InitConfig()
     connect(ui->horizontalSlider_PlayPosition, SIGNAL(onHover(int,int)), SLOT(onTimeSliderHover(int,int)));
     connect(ui->horizontalSlider_PlayPosition, SIGNAL(sliderMoved(int)), SLOT(seek(int)));
     connect(ui->horizontalSlider_PlayPosition, SIGNAL(sliderPressed()), SLOT(seek()));
-
     this->setMouseTracking(true);
 
     /*初始化视频列表的右键菜单*/
@@ -215,11 +210,12 @@ void Widget::onCustomContextMenuRequested(const QPoint &pos)
 
 void Widget::QMDK_InitConfig()
 {
+    /*先前版本的MDK需要许可证 修改后不需要许可就可使用*/
     //SetGlobalOption("MDK_KEY", "10453B8F2140865027CEDD6FDF846D940CA738BE72FE5EE1397DF61714CAAA2A185B72EEC1F781FD5E1FA9BB0AB739E35CCC793F0EBC3FD0182D61EE56E59E08EFBAC47021408D50D8312290207B926B0CA730D91E982991551C8FD75973CAF6B1C4573E7CBF9467F3BAF34F8D9F0A8AE239503BFB1B7B02E4EB0F2121E5D408");
 
     //关联双击事件
     connect(ui->AV_player, &QMDKWidget::ss_VideoWidgetEvent, this,&Widget::slot_VideoWidgetEvent);
-
+    //创建QMDKWidget对象
     m_preview=new QMDKWidget(ui->AV_player);
 
     m_preview->setVisible(false);
@@ -333,7 +329,7 @@ void Widget::on_MediaResetBtn_clicked()
 
 void Widget::on_MediaPrevBtn_clicked()
 {
-    ui->AV_player->seek(ui->AV_player->position()-10000);
+    ui->AV_player->seek(ui->AV_player->position()-500);
 }
 
 
@@ -341,12 +337,12 @@ void Widget::on_MediaPrevBtn_clicked()
 
 void Widget::on_MediaPlayBtn_clicked()
 {
-    ui->AV_player->seek(ui->AV_player->position()+10000);
+    ui->AV_player->seek(ui->AV_player->position()+500);
 }
 
 
 
-//功能: 音量设置
+//功能:静音设置
 
 void Widget::on_VolumeBtn_clicked()
 {
@@ -811,7 +807,7 @@ void Widget::LoadConfig()
 
 void Widget::closeEvent(QCloseEvent *event)
 {
-    int ret = QMessageBox::question(this, tr("重要提示"),
+    int ret = QMessageBox::question(this, tr("QMAK_player"),
     tr("是否需要关闭窗口?"),
     QMessageBox::Yes | QMessageBox::No);
 
@@ -836,17 +832,7 @@ void Widget::on_toolButton_about_clicked()
     "<body>"
     "<h1><center>视频播放器功能介绍</center></h1>"
     "<p>1. 基于MDK-SDK接口开发.</p>"
-    "<p>这是MDK-SDK的github地址: <a href=\"https://github.com/wang-bin/mdk-sdk/\"> https://github.com/wang-bin/mdk-sdk</a></p>"
-    "<p>2. 鼠标左键双击放大.</p>"
-    "<p>3. 鼠标右键或者空格键切换暂停与播放.</p>"
-    "<p>4. 鼠标放在进度条上可以实现画面预览.</p>"
-    "<p>5. 滚动条支持点击跳转或拖动.</p>"
-    "<p>6. 支持音量调整、拖动或者点击.</p>"
-    "<p>7. 支持静音切换.</p>"
-    "<p>8. 支持播放列表添加,选中右下角的复选框，可以打开播放列表。\n播放列表里，鼠标右键可以添加、删除播放文件.</p>"
-    "<p>9. 支持退出时保存播放列表,下次打开软件自动加载播放列表.\n下次打开软件时,如果播放列表文件路径存在,将自动选中第一个文件播放.</p>"
-    "<p>10. 每次打开视频默认是暂停状态,不会播放，只显示第一个画面.</p>"
-    "<p>11. 支持鼠标滚轮滚动预览画面.</p>"
+    "<p>学习参考自CSDN大佬DS小龙哥</a></p>"
     "</body>"
     "</html>";
     QMessageBox::about(this,"关于",text);

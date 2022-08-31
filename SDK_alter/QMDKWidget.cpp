@@ -1,8 +1,4 @@
-﻿/*
- * Copyright (c) 2020 WangBin <wbsecg1 at gmail.com>
- * MDK SDK with QOpenGLWidget example
- */
-#include "QMDKWidget.h"
+﻿#include "QMDKWidget.h"
 #include "mdk/Player.h"
 #include <QCoreApplication>
 #include <QDebug>
@@ -12,15 +8,16 @@
 #include <QStringList>
 #include <QScreen>
 
+//QMDK判断当前状态
 bool av_MediaStatusChanged(mdk::MediaStatus m)
 {
     if(m==mdk::NoMedia)
     {
-        qDebug()<<"初始状态，非无效";
+        qDebug()<<"初始状态";
     }
     else if(m==mdk::Unloaded)
     {
-        qDebug()<<"Unloaded";
+        qDebug()<<"未加载";
     }
     else if(m==mdk::Loading)
     {
@@ -28,15 +25,15 @@ bool av_MediaStatusChanged(mdk::MediaStatus m)
     }
     else if(m==mdk::Loaded)
     {
-        qDebug()<<"加载并解析媒体,播放器处于停止状态。mediaInfo()现在可用";
+        qDebug()<<"已加载";
     }
     else if(m==mdk::Prepared)
     {
-        qDebug()<<"所有磁道都已缓冲并准备好解码帧。未能打开解码器的磁道被忽略.";
+        qDebug()<<"所有磁道都已缓冲";
     }
     else if(m==mdk::Stalled)
     {
-        qDebug()<<"缓冲不足或其他中断（超时、用户中断）";
+        qDebug()<<"缓冲不足";
     }
     else if(m==mdk::Buffering)
     {
@@ -62,8 +59,7 @@ bool av_MediaStatusChanged(mdk::MediaStatus m)
      qDebug()<<"MediaStatus:"<<m;
     return true;
 }
-
-
+//QMDK基本提示
 bool av_MediaEvent(const mdk::MediaEvent&m)
 {
     //出现错误
@@ -77,6 +73,8 @@ bool av_MediaEvent(const mdk::MediaEvent&m)
     }
     return true;
 }
+
+//log登录 引入新版本后没用了
 
 void mdk_log(mdk::LogLevel log_type, const char*str)
 {
@@ -118,11 +116,11 @@ QMDKWidget::QMDKWidget(QWidget *parent, Qt::WindowFlags f)
 QMDKWidget::~QMDKWidget()
 {
     makeCurrent();
-    player_->setVideoSurfaceSize(-1, -1); // cleanup gl renderer resources
+    player_->setVideoSurfaceSize(-1, -1);
 }
 
 
-//设置音量  值：> = 0。1.0是原始音量
+//设置音量
 void QMDKWidget::setVolume(float value)
 {
     player_->setVolume(value);
@@ -156,7 +154,6 @@ void QMDKWidget::setPlaybackRate(float value)
 
 
 //旋转视频  逆时针0、90、180、270
-//player_->rotate(int degree, void* vo_opaque = nullptr);
 void QMDKWidget::setrotate(int degree) //设置旋转
 {
     player_->rotate(degree);
@@ -237,16 +234,11 @@ void QMDKWidget::paintGL()
 }
 
 /*
-工程: QtAV_VideoPlayer
-日期: 2021-03-25
-作者: DS小龙哥
-环境: win10 QT5.12.6 MinGW32
 功能: 鼠标双击事件
 */
 void QMDKWidget::mouseDoubleClickEvent(QMouseEvent *e)
 {
     qDebug()<<"鼠标双击";
-   // Widget::slot_VideoWidgetEvent(1);
     Q_EMIT ss_VideoWidgetEvent(1);
 }
 
