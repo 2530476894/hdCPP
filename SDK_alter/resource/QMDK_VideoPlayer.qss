@@ -72,7 +72,7 @@
 /*播速率按钮样式*/
 #MediaSpeedBtn
 {
-	background-color:#9A9A9A;
+        background-color:#CED5D5;
 	font-size:16px;
 	color:#242526;
 	border:0.1px groove gray;
@@ -105,8 +105,11 @@ QWidget
 {
 	font-size: 16px;
 	color: #9A9A9A;
-	background: #242526;
+        background: #BBCACA;
 }
+
+/*对应视频时间*/
+#horizontal_{background:#BBCACA;}
 
 /*标签样式,对应的是视频总时间*/
 #label_Total_Time{color: #1473E6;}
@@ -201,7 +204,7 @@ QScrollBar:horizontal{
 	padding-left: 0px;
 	padding-right:0px;
 	border:0px solid grey;
-	background-color: #FF6A6A;
+        background-color: #A1AEAE;
 	height:10px;
 	border-radius: 5px;
 }
@@ -210,7 +213,7 @@ QScrollBar:vertical{
 	padding-top: 0px;
 	padding-bottom:0px;
 	border:0px solid grey;
-	background-color: #FF6A6A;
+        background-color: #A1AEAE;
 	width:10px;
 	border-radius: 5px;
 }
@@ -290,19 +293,22 @@ QPushButton:pressed
     background-color:rgb(14 , 135 , 228);
 }
 
+
 /*条目选中的样式*/
 QListWidget::item:selected
 {
 	/*背景颜色*/  
-    background-color:#FF1493;
+    background-color:#FFF3FA;
 	/*字体颜色*/
-    color:white;
+    color:black;
     border-width:0;
 }
 
 /*基本样式设置*/
 QListWidget
 {
+        /*字体颜色*/
+        color:#454647;
 	/*去除边界线*/
 	border:none;
 }
@@ -310,13 +316,17 @@ QListWidget
 QLabel
 {
 	/*背景颜色*/  
-    background-color:white;
+    background-color:#BBCACA;
 	/*字体颜色*/
     color:#242526;
 }
 
 #label_FileName
 {
-	background-color:#242526;
-	color:#9A9A9A;
+        background-color:#BBCACA;
+        color:#242526;
+}
+
+QMessageBox {
+        background-color: #F2F2F2; /* QMessageBox背景颜色 */
 }
