@@ -174,7 +174,7 @@
         <item>
          <widget class="QLabel" name="label_current_Time">
           <property name="styleSheet">
-           <string notr="true">background-color:#242526;
+           <string notr="true">background-color:#C9D5D5;
 	color:#9A9A9A;</string>
           </property>
           <property name="text">
@@ -185,7 +185,7 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="styleSheet">
-           <string notr="true">background-color:#242526;
+           <string notr="true">background-color:#C9D5D5;
 	color:#9A9A9A;</string>
           </property>
           <property name="text">
@@ -196,7 +196,7 @@
         <item>
          <widget class="QLabel" name="label_Total_Time">
           <property name="styleSheet">
-           <string notr="true">background-color:#242526;</string>
+           <string notr="true">background-color:#C9D5D5;</string>
           </property>
           <property name="text">
            <string>00.00.00.00</string>
